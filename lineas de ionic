@@ -1,0 +1,43 @@
+crear proyecto
+ionic start nombreProyecto blank
+ejecutar servidor
+ionic serve
+
+instalar dependencias decapacitor
+npm install --save @capacitor/core @capacitor/cli --save-exact
+
+version del capacitor
+npx cap --version
+
+instalar capacitor en el proyecto
+npx cap init
+
+compilar app y agregar carpeta www
+ionic build
+
+agregar platafora android
+npx cap add android
+
+agregar platafora android
+npx cap add ios
+
+para abrir el proyecto en android studio
+npx cap open android 
+
+para abrir el proyecto en android studio
+npx cap open ios
+
+sincronizar los cambios al dispositivo pero primero se ejecuta el comando build
+npx cap sync
+ionic build && npx cap sync
+
+si solo se modifica el html se usa
+npx cap copy
+
+crear nueva pagina
+ionic generate page intro
+
+instalar almacenamiento en ionic
+npm install --save @ionic/storage --save-exact
+
+
