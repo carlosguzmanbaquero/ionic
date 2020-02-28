@@ -40,4 +40,13 @@ ionic generate page intro
 instalar almacenamiento en ionic
 npm install --save @ionic/storage --save-exact
 
+crear guards
+ionic generate guard guards/intro
+
+crear servicio de autenticacion
+ionic generate service services/authenticate
+
+
+
+
 
