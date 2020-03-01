@@ -1,3 +1,6 @@
+instalar ionic
+npm install -g @ionic/cli
+
 crear proyecto
 ionic start nombreProyecto blank
 ejecutar servidor
