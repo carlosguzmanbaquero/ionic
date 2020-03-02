@@ -54,4 +54,8 @@ export class LoginPage implements OnInit {
     console.log(credentials);
   }
 
+  goToRegister(){
+    this.navCtrl.navigateForward("/register");
+  }
+
 }
