@@ -8,7 +8,8 @@ export class AuthenticateService {
 
   constructor(private storage: Storage) { }
 
-  loginUser(credential){
+  async loginUser(credential){
+    //const user=await this.storage.get("user");
     return new Promise((accept, reject)=>{
       
       this.storage.get('user').then((val) => {
