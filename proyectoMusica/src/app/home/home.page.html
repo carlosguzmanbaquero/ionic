@@ -6,31 +6,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <h1>Artista</h1>
-  <ion-slides pager="true" [options]="slideOpt" *ngIf="artists.length">
-    <ion-slide *ngFor="let artist of artists">
+  <ion-slides pager="false" [options]="slideOpt" *ngIf="artists.length">
+    <ion-slide *ngFor="let artist of artists" class="ion-padding">
       <ion-avatar>
-        <img src="https://via.placeholder.com/150"/>
-        <span style="font-size: 9px;">artista</span>
+        <img [src]="artist.images[0].url"/>
+        <span>{{artist.name}}</span>
       </ion-avatar>
     </ion-slide>
   </ion-slides>
-
-  <ion-slides pager="true" [options]="slideOpt" *ngIf="artists.length">
-    <ion-slide *ngFor="let artist of artists">
-      <ion-avatar>
-        <img src="https://via.placeholder.com/150"/>
-        <span style="font-size: 9px;">artista</span>
+  <h1>Albums</h1>
+  <ion-slides pager="false" [options]="slideOpt" *ngIf="albums.length">
+    <ion-slide *ngFor="let album of albums" class="ion-padding">
+      <ion-avatar class="square-avatar">
+        <img [src]="album.images[0].url"/>
+        <span>{{album.name}}</span>
       </ion-avatar>
     </ion-slide>
   </ion-slides>
-
-  <ion-slides pager="true" [options]="slideOpt" *ngIf="artists.length">
-    <ion-slide *ngFor="let artist of artists">
-      <ion-avatar>
-        <img src="https://via.placeholder.com/150"/>
-        <span style="font-size: 9px;">artista</span>
+  <h1>Canciones</h1>
+  <ion-slides pager="false" [options]="slideOpt" *ngIf="songs.length">
+    <ion-slide *ngFor="let song of songs" class="ion-padding">
+      <ion-avatar class="square-avatar">
+        <img [src]="song.images[0].url"/>
+        <span>{{song.name}}</span>
       </ion-avatar>
     </ion-slide>
   </ion-slides>
