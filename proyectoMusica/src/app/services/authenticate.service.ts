@@ -13,13 +13,20 @@ export class AuthenticateService {
     return new Promise((accept, reject)=>{
       
       this.storage.get('user').then((val) => {
-      let passwordEncriptado=btoa(credential.password);
-      console.log('clave '+passwordEncriptado);
-      if(credential.email==val.email && passwordEncriptado==val.password){
-        accept("Login correcto");
-      }else{
-        reject("Login incorrecto");
-      }
+
+        if(val==null){
+          console.log('El usuario no se encuentra registrado');
+          reject("El usuario no se encuentra registrado");
+        }else{
+          let passwordEncriptado=btoa(credential.password);
+          console.log('clave '+passwordEncriptado);
+          if(credential.email==val.email && passwordEncriptado==val.password){
+            accept("Login correcto");
+          }else{
+            reject("Login incorrecto");
+          }
+        }
+      
       });    
      
     });
