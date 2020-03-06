@@ -5,7 +5,35 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  <h1>Home</h1>
+
+<ion-content padding>
+  <h1>Artista</h1>
+  <ion-slides pager="true" [options]="slideOpt" *ngIf="artists.length">
+    <ion-slide *ngFor="let artist of artists">
+      <ion-avatar>
+        <img src="https://via.placeholder.com/150"/>
+        <span style="font-size: 9px;">artista</span>
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-slides pager="true" [options]="slideOpt" *ngIf="artists.length">
+    <ion-slide *ngFor="let artist of artists">
+      <ion-avatar>
+        <img src="https://via.placeholder.com/150"/>
+        <span style="font-size: 9px;">artista</span>
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-slides pager="true" [options]="slideOpt" *ngIf="artists.length">
+    <ion-slide *ngFor="let artist of artists">
+      <ion-avatar>
+        <img src="https://via.placeholder.com/150"/>
+        <span style="font-size: 9px;">artista</span>
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
+  
 </ion-content>
 
