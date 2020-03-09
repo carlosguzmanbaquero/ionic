@@ -13,7 +13,6 @@ export class HomePage implements OnInit{
     slidesPerView:4,
     centeredSlides: true,
     speed:400
-
   }
 
   songs:any[]=[];
@@ -30,6 +29,10 @@ export class HomePage implements OnInit{
       this.albums=newReleases.albums.items.filter(e=>e.album_type=='album');
     });
   } 
+
+  showSongs(artist){
+     
+  }
 
   ngOnInit() {
   }
