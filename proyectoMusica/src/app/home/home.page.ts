@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { ProyectoMusicService } from '../services/proyecto-music.service';
+import { ModalController } from '@ionic/angular';
+import { SongsModalPage } from '../songs-modal/songs-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -19,19 +21,28 @@ export class HomePage implements OnInit{
   albums:any[]=[];
   artists:any[]=[];
 
-  constructor(private musicService: ProyectoMusicService){}
+  constructor(private musicService: ProyectoMusicService,
+    private modalController:ModalController){}
 
   ionViewDidEnter(){
     this.musicService.getNewReleases().then((newReleases) =>{
       this.artists=this.musicService.getArtists();//newReleases.albums.items;
-      console.log(this.artists);
+      //console.log(this.artists);
       this.songs=newReleases.albums.items.filter(e=>e.album_type=='single');
       this.albums=newReleases.albums.items.filter(e=>e.album_type=='album');
     });
   } 
 
-  showSongs(artist){
-     
+  async showSongs(artist){
+     const songs=await this.musicService.getArtistTopTrack(artist.id);
+     const modal=await this.modalController.create({
+       component: SongsModalPage,
+       componentProps:{
+         songs:songs.tracks,
+         artist:artist.name
+       }
+     });
+     return await modal.present();
   }
 
   ngOnInit() {
