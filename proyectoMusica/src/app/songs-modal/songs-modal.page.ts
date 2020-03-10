@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavParams, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-songs-modal',
@@ -6,8 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./songs-modal.page.scss'],
 })
 export class SongsModalPage implements OnInit {
+  songs: any[];
+  artist: string;
 
-  constructor() { }
+  constructor(private navParams: NavParams, private modalController:ModalController) { }
+
+  ionViewDidEnter(){
+    this.songs=this.navParams.data.songs;
+    this.artist=this.navParams.data.artist;
+  }
+
+  async selectSong(song){
+    await this.modalController.dismiss(song);
+  }
 
   ngOnInit() {
   }
