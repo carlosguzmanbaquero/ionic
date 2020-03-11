@@ -24,4 +24,10 @@ export class ProyectoMusicService {
       response => response.json()
     );
   }
+
+  getAlbumTrack(albumId){
+    return fetch(`https://platzi-music-api.now.sh/albums/${albumId}/tracks?country=CO`).then(
+      response => response.json()
+    );
+  }
 }

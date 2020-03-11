@@ -38,6 +38,7 @@ export class HomePage implements OnInit{
 
   async showSongs(artist){
      const songs=await this.musicService.getArtistTopTrack(artist.id);
+     //console.log('artista '+artist.id);
      const modal=await this.modalController.create({
        component: SongsModalPage,
        componentProps:{
@@ -47,6 +48,24 @@ export class HomePage implements OnInit{
      });
 
      modal.onDidDismiss().then(dataReturned=>{
+      this.song=dataReturned.data;
+     });
+
+     return await modal.present();
+  }
+
+  async showSongsAlbum(album){
+    const songs=await this.musicService.getAlbumTrack(album.id);
+    //console.log('album '+album.id);
+    const modal=await this.modalController.create({
+      component: SongsModalPage,
+      componentProps:{
+        songs:songs.items,
+        artist:album.name
+      }
+    });
+
+    modal.onDidDismiss().then(dataReturned=>{
       this.song=dataReturned.data;
      });
 
