@@ -20,6 +20,9 @@ export class HomePage implements OnInit{
   songs:any[]=[];
   albums:any[]=[];
   artists:any[]=[];
+  song={};
+  currentSong={};
+  newTime={};
 
   constructor(private musicService: ProyectoMusicService,
     private modalController:ModalController){}
@@ -42,7 +45,41 @@ export class HomePage implements OnInit{
          artist:artist.name
        }
      });
+
+     modal.onDidDismiss().then(dataReturned=>{
+      this.song=dataReturned.data;
+     });
+
      return await modal.present();
+  }
+
+  play(){
+    this.song.playing=true;
+    this.currentSong=new Audio(this.song.preview_url);
+    this.currentSong.play();
+    this.currentSong.addEventListener("timeupdate",() =>{
+      this.newTime= (this.currentSong.currentTime*(this.currentSong.duration/10))/100;
+    });
+  }
+
+  pause(){
+    this.song.playing=false;
+    this.currentSong.pause();
+  }
+
+  parseTime(time="0.00"){
+    if(time){
+      const parTime=parseInt(time.toString().split(".")[0],10);
+      let minutes=Math.floor(parTime/60).toString();
+      if(minutes.length==1){
+        minutes="0"+minutes;
+      } 
+      let seconds=Math.floor(parTime%60).toString();
+      if(seconds.length==1){
+        seconds="0"+seconds;
+      }
+      return minutes+":"+seconds;
+    }
   }
 
   ngOnInit() {
