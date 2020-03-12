@@ -12,6 +12,8 @@ const routes: Routes = [
       },
       { path: 'setting', loadChildren: () => import('../setting/setting.module').then( m => m.SettingPageModule)
       },
+      { path: 'sports', loadChildren: () => import('../sports/sports.module').then( m => m.SportsPageModule)
+      },
       { path: '', redirectTo: "home", pathMatch:"full"
       }
     ]
