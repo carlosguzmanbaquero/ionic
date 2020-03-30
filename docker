@@ -1,0 +1,47 @@
+usermod -aG docker cguzman
+
+iniciar docker
+systemctl start docker
+
+crear docker
+docker run hello-world
+
+listar docker
+docker ps -a
+
+inspeccionar docker
+docker inspect id_docker
+
+renombrar docker
+docker rename name_docker new_name
+
+filtrar por contenido del docker
+docker inspect -f '{ json .Config.Env{}' } 9e28ce74519b
+
+crear docker con nombre
+docker run --name hola-mundo hello-world
+
+borrar contenedor
+docker rm name_docker
+
+listar solo los ids de los docker
+docker ps -aq
+
+borrar todos los docker por id
+docker rm $(docker ps -aq)
+
+crear docker ubuntu 
+docker run ubuntu
+
+crear docker de nginx
+docker run -d --name server nginx
+
+bajar el docker
+docker rm -f server
+
+crear docker de nginx publicando el puerto
+docker run -d --name server -p 8081:80 nginx
+
+
+
+
