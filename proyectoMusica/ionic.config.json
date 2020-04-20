@@ -1,0 +1,7 @@
+{
+  "name": "proyectoMusica",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
