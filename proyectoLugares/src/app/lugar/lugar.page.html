@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lugar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="floating">Nombre:</ion-label>
+    <ion-input type="text" [(ngModel)]="lugar.nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Dirección:</ion-label>
+    <ion-input type="text" [(ngModel)]="lugar.direccion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Categoria:</ion-label>
+    <ion-select value="Privado" okText="Seleccionar" cancelText="Cancelar"
+      [(ngModel)]="lugar.categoria">
+      <ion-select-option value="Privado">Privado</ion-select-option>
+      <ion-select-option value="Público">Público</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Descripción:</ion-label>
+    <ion-textarea rows="6" cols="20" [(ngModel)]="lugar.descripcion"></ion-textarea>
+  </ion-item>
+  <ion-button (click)="guardarLugar()" expand="full" color="primary" shape="round" fill="outline">Guardar</ion-button>
+  <ion-button (click)="navegarAHome()" expand="full" color="danger" shape="round" fill="outline">ir a home</ion-button>
+  
+</ion-content>

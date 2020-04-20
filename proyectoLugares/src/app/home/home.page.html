@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let lugar of lugares" (click)="navegarADetalleLugar(lugar)"> 
+      <ion-label>
+      <h2>{{lugar.nombre}}</h2>
+      <h3>{{lugar.direccion}}</h3>
+      <p>{{lugar.categoria}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab-button >
+    <ion-button (click)="navegarALugar()" >+</ion-button>
+  </ion-fab-button>
+ 
+  <!--<ion-button (click)="navegarALugar()" >ir a lugar</ion-button>-->
+</ion-content>
