@@ -7,14 +7,28 @@
 </ion-header>
 
 <ion-content>
+
   <ion-list>
-    <ion-item *ngFor="let lugar of lugares" (click)="navegarADetalleLugar(lugar)"> 
+  <ion-item-sliding *ngFor="let lugar of lugares">
+
+    <ion-item (click)="navegarADetalleLugar(lugar)">
       <ion-label>
-      <h2>{{lugar.nombre}}</h2>
-      <h3>{{lugar.direccion}}</h3>
-      <p>{{lugar.categoria}}</p>
-      </ion-label>
+        <h2>{{lugar.nombre}}</h2>
+        <h3>{{lugar.direccion}}</h3>
+        <p>{{lugar.categoria}}</p>
+        </ion-label>
     </ion-item>
+
+    <ion-item-options side="end">
+      <ion-item-option color="danger">
+        <ion-button color=red; (click)="eliminarLugar(lugar)" >
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+          Eliminar
+        </ion-button>
+      </ion-item-option>
+    </ion-item-options>
+
+  </ion-item-sliding>
   </ion-list>
 
   <ion-fab-button >

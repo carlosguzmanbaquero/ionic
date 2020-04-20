@@ -32,4 +32,11 @@ export class HomePage {
     this.router.navigate(['/tabs/lugar'],navigationExtras)
   }
 
+  eliminarLugar(lugar){
+    if(confirm('Seguro que desea eliminar el lugar?'))
+      this.lugaresService.eliminarLugar(lugar).then(()=>{
+        alert('Lugar eliminado');
+      });
+  }
+
 }
