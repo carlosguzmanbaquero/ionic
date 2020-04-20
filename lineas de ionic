@@ -52,7 +52,16 @@ npm install @ionic/pwa-elements --save
 instalar libreria de angular maps
 npm install @agm/core
 
+lib firebase
+npm install angularfire2 firebase promise-polyfill --save
 
+//cordova
+ionic cordova build android
+ionic cordova platform add  android
+ionic cordova run android
+ionic cordova run android --no-native-run
+ionic cordova run android -l --device
 
+npm install @types/node@10.1.4
 
 
